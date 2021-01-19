@@ -67,7 +67,17 @@ namespace Retenu_Fournisseur
 
         private void barAcceuil_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Formshow(Forms.FrmAcceuil.InstanceFrmAcceuil);
+        }
 
+        private void barUtilisateurs_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Formshow(Forms.FrmUser.InstanceFrmUser);
+        }
+
+        private void barAprops_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FormshowNotParent(Forms.FrmApropos.InstanceFrmApropos);
         }
     }
 }

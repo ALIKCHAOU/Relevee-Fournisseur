@@ -32,8 +32,8 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.BtnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.BtnAnuuler = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.TwtPwd = new DevExpress.XtraEditors.TextEdit();
+            this.TxtLogin = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -44,8 +44,8 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TwtPwd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtLogin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -60,8 +60,8 @@
             // 
             this.layoutControl1.Controls.Add(this.BtnLogin);
             this.layoutControl1.Controls.Add(this.BtnAnuuler);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Controls.Add(this.TwtPwd);
+            this.layoutControl1.Controls.Add(this.TxtLogin);
             this.layoutControl1.Controls.Add(this.pictureBox1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -80,6 +80,7 @@
             this.BtnLogin.StyleController = this.layoutControl1;
             this.BtnLogin.TabIndex = 8;
             this.BtnLogin.Text = "Login";
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // BtnAnuuler
             // 
@@ -91,21 +92,21 @@
             this.BtnAnuuler.TabIndex = 7;
             this.BtnAnuuler.Text = "Annuler";
             // 
-            // textEdit2
+            // TwtPwd
             // 
-            this.textEdit2.Location = new System.Drawing.Point(79, 221);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(412, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 6;
+            this.TwtPwd.Location = new System.Drawing.Point(79, 221);
+            this.TwtPwd.Name = "TwtPwd";
+            this.TwtPwd.Size = new System.Drawing.Size(412, 20);
+            this.TwtPwd.StyleController = this.layoutControl1;
+            this.TwtPwd.TabIndex = 6;
             // 
-            // textEdit1
+            // TxtLogin
             // 
-            this.textEdit1.Location = new System.Drawing.Point(79, 197);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(412, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 5;
+            this.TxtLogin.Location = new System.Drawing.Point(79, 197);
+            this.TxtLogin.Name = "TxtLogin";
+            this.TxtLogin.Size = new System.Drawing.Size(412, 20);
+            this.TxtLogin.StyleController = this.layoutControl1;
+            this.TxtLogin.TabIndex = 5;
             // 
             // pictureBox1
             // 
@@ -145,7 +146,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit1;
+            this.layoutControlItem2.Control = this.TxtLogin;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 185);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(483, 24);
@@ -154,7 +155,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit2;
+            this.layoutControlItem3.Control = this.TwtPwd;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 209);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(483, 24);
@@ -199,8 +200,8 @@
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TwtPwd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtLogin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -219,8 +220,8 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraEditors.SimpleButton BtnLogin;
         private DevExpress.XtraEditors.SimpleButton BtnAnuuler;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit TwtPwd;
+        private DevExpress.XtraEditors.TextEdit TxtLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;

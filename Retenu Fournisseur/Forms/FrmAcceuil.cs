@@ -13,6 +13,17 @@ namespace Retenu_Fournisseur.Forms
 {
     public partial class FrmAcceuil : DevExpress.XtraEditors.XtraForm
     {
+
+        private static FrmAcceuil _FrmAcceuil;
+        public static FrmAcceuil InstanceFrmAcceuil
+        {
+            get
+            {
+                if (_FrmAcceuil == null)
+                    _FrmAcceuil = new FrmAcceuil();
+                return _FrmAcceuil;
+            }
+        }
         public FrmAcceuil()
         {
             InitializeComponent();
@@ -20,7 +31,7 @@ namespace Retenu_Fournisseur.Forms
 
         private void FrmAcceuil_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            _FrmAcceuil = null;
         }
     }
 }

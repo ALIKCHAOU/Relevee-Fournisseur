@@ -35,17 +35,17 @@
             this.barAprops = new DevExpress.XtraBars.BarButtonItem();
             this.barUtilisateurs = new DevExpress.XtraBars.BarButtonItem();
             this.barFrounisseur = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barAcceuil = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barAccuiel = new DevExpress.XtraBars.BarButtonItem();
-            this.barAcceuil = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -87,6 +87,7 @@
             this.barAprops.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barAprops.ImageOptions.Image")));
             this.barAprops.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barAprops.ImageOptions.LargeImage")));
             this.barAprops.Name = "barAprops";
+            this.barAprops.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barAprops_ItemClick);
             // 
             // barUtilisateurs
             // 
@@ -95,6 +96,7 @@
             this.barUtilisateurs.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barUtilisateurs.ImageOptions.Image")));
             this.barUtilisateurs.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barUtilisateurs.ImageOptions.LargeImage")));
             this.barUtilisateurs.Name = "barUtilisateurs";
+            this.barUtilisateurs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barUtilisateurs_ItemClick);
             // 
             // barFrounisseur
             // 
@@ -105,18 +107,26 @@
             this.barFrounisseur.Name = "barFrounisseur";
             this.barFrounisseur.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barFrounisseur_ItemClick);
             // 
-            // ribbonPage2
+            // barAcceuil
             // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Parametrage";
+            this.barAcceuil.Caption = "Acceuil";
+            this.barAcceuil.Id = 6;
+            this.barAcceuil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barAcceuil.ImageOptions.Image")));
+            this.barAcceuil.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barAcceuil.ImageOptions.LargeImage")));
+            this.barAcceuil.Name = "barAcceuil";
+            this.barAcceuil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barAcceuil_ItemClick);
             // 
-            // ribbonPageGroup2
+            // ribbonPage3
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barAprops);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barUtilisateurs);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3});
+            this.ribbonPage3.Name = "ribbonPage3";
+            this.ribbonPage3.Text = "Accueil";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barAcceuil);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             // 
             // ribbonPage1
             // 
@@ -130,6 +140,19 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barReleveFournisseur);
             this.ribbonPageGroup1.ItemLinks.Add(this.barFrounisseur);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Parametrage";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barAprops);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barUtilisateurs);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonStatusBar
             // 
@@ -150,32 +173,11 @@
             // 
             this.tabbedView1.RootContainer.Element = null;
             // 
-            // ribbonPage3
-            // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "Accueil";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barAcceuil);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            // 
             // barAccuiel
             // 
             this.barAccuiel.Caption = "barButtonItem1";
             this.barAccuiel.Id = 5;
             this.barAccuiel.Name = "barAccuiel";
-            // 
-            // barAcceuil
-            // 
-            this.barAcceuil.Caption = "Acceuil";
-            this.barAcceuil.Id = 6;
-            this.barAcceuil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barAcceuil.ImageOptions.Image")));
-            this.barAcceuil.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barAcceuil.ImageOptions.LargeImage")));
-            this.barAcceuil.Name = "barAcceuil";
-            this.barAcceuil.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barAcceuil_ItemClick);
             // 
             // MainRibbonForm
             // 
@@ -184,11 +186,14 @@
             this.ClientSize = new System.Drawing.Size(660, 449);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MainRibbonForm";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Releve Fournisseur";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainRibbonForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
