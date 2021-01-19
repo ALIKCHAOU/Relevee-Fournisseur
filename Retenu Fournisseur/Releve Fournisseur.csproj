@@ -79,6 +79,12 @@
     <Compile Include="Forms\FrmApropos.Designer.cs">
       <DependentUpon>FrmApropos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmBaseDonnee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBaseDonnee.Designer.cs">
+      <DependentUpon>FrmBaseDonnee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmReleveeFournisseur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,9 +125,15 @@
     <Compile Include="Migrations\202101191002055_init.designer.cs">
       <DependentUpon>202101191002055_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101191450102_database.cs" />
+    <Compile Include="Migrations\202101191450102_database.designer.cs">
+      <DependentUpon>202101191450102_database.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\BaseDonee.cs" />
     <Compile Include="Model\ContextApplication.cs" />
     <Compile Include="Model\Exercice.cs" />
+    <Compile Include="Model\Factures.cs" />
     <Compile Include="Model\Frounisseur.cs" />
     <Compile Include="Model\ReleveFournisseur.cs" />
     <Compile Include="Model\User.cs" />
@@ -132,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmApropos.resx">
       <DependentUpon>FrmApropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBaseDonnee.resx">
+      <DependentUpon>FrmBaseDonnee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmFournisseur.resx">
       <DependentUpon>FrmFournisseur.cs</DependentUpon>
@@ -153,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101191002055_init.resx">
       <DependentUpon>202101191002055_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101191450102_database.resx">
+      <DependentUpon>202101191450102_database.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

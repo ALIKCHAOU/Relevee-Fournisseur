@@ -17,6 +17,9 @@ namespace Retenu_Fournisseur.Model
 
       
         public DbSet<User> Users { get; set; }
-    
+        public DbSet<BaseDonee> BaseDonees { get; set; }
+        
+
+
     }
 }

@@ -30,30 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.BtnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.BtnAnuuler = new DevExpress.XtraEditors.SimpleButton();
             this.TwtPwd = new DevExpress.XtraEditors.TextEdit();
             this.TxtLogin = new DevExpress.XtraEditors.TextEdit();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.BtnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.BtnAnuuler = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TwtPwd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtLogin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -70,6 +70,64 @@
             this.layoutControl1.Size = new System.Drawing.Size(503, 279);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // TwtPwd
+            // 
+            this.TwtPwd.Location = new System.Drawing.Point(238, 221);
+            this.TwtPwd.Name = "TwtPwd";
+            this.TwtPwd.Size = new System.Drawing.Size(253, 20);
+            this.TwtPwd.StyleController = this.layoutControl1;
+            this.TwtPwd.TabIndex = 6;
+            // 
+            // TxtLogin
+            // 
+            this.TxtLogin.Location = new System.Drawing.Point(238, 197);
+            this.TxtLogin.Name = "TxtLogin";
+            this.TxtLogin.Size = new System.Drawing.Size(253, 20);
+            this.TxtLogin.StyleController = this.layoutControl1;
+            this.TxtLogin.TabIndex = 5;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.emptySpaceItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(503, 279);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.TxtLogin;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 185);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(483, 24);
+            this.layoutControlItem2.Text = "Login                                                                  ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(223, 13);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.TwtPwd;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 209);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(483, 24);
+            this.layoutControlItem3.Text = "Mot de Passe";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(223, 13);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 233);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(273, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // BtnLogin
             // 
@@ -92,22 +150,6 @@
             this.BtnAnuuler.TabIndex = 7;
             this.BtnAnuuler.Text = "Annuler";
             // 
-            // TwtPwd
-            // 
-            this.TwtPwd.Location = new System.Drawing.Point(79, 221);
-            this.TwtPwd.Name = "TwtPwd";
-            this.TwtPwd.Size = new System.Drawing.Size(412, 20);
-            this.TwtPwd.StyleController = this.layoutControl1;
-            this.TwtPwd.TabIndex = 6;
-            // 
-            // TxtLogin
-            // 
-            this.TxtLogin.Location = new System.Drawing.Point(79, 197);
-            this.TxtLogin.Name = "TxtLogin";
-            this.TxtLogin.Size = new System.Drawing.Size(412, 20);
-            this.TxtLogin.StyleController = this.layoutControl1;
-            this.TxtLogin.TabIndex = 5;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
@@ -119,22 +161,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(503, 279);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.pictureBox1;
@@ -143,24 +169,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(483, 185);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.TxtLogin;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 185);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(483, 24);
-            this.layoutControlItem2.Text = "Login";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(64, 13);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.TwtPwd;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 209);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(483, 24);
-            this.layoutControlItem3.Text = "Mot de Passe";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(64, 13);
             // 
             // layoutControlItem4
             // 
@@ -180,14 +188,6 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 233);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(273, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +195,7 @@
             this.ClientSize = new System.Drawing.Size(503, 279);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -202,14 +203,14 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TwtPwd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtLogin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -37,6 +37,23 @@
                      FirstName = "User"
                  });
             }
+     
+            if (context.BaseDonees.Count() == 0)
+            {
+
+                context.BaseDonees.AddOrUpdate(
+
+                 new BaseDonee
+                 {
+                ServerName ="172.17.1.243\\sqlexpress",
+                Name ="Sage",
+                NameDataBase = "CHAABANE",
+                autentificationWindows =false,
+                UserName ="sa",
+                Password ="Admin123",
+               
+                });
+            }
         }
     }
 }

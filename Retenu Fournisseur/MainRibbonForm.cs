@@ -79,5 +79,15 @@ namespace Retenu_Fournisseur
         {
             FormshowNotParent(Forms.FrmApropos.InstanceFrmApropos);
         }
+
+        private void barDataBase_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Formshow(Forms.FrmBaseDonnee.InstanceFrmBaseDonnee);
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Formshow(Forms.FrmFournisseur.InstanceFrmFournisseur);
+        }
     }
 }
