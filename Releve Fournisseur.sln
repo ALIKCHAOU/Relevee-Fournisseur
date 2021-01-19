@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Releve Fournisseur", "Retenu Fournisseur\Releve Fournisseur.csproj", "{22844AED-4991-40C3-8625-EA44FCF24C7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22844AED-4991-40C3-8625-EA44FCF24C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22844AED-4991-40C3-8625-EA44FCF24C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22844AED-4991-40C3-8625-EA44FCF24C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22844AED-4991-40C3-8625-EA44FCF24C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {256598C8-443D-4FC8-B172-5F599DB66739}
+	EndGlobalSection
+EndGlobal
