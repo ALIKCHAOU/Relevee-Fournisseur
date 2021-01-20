@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Retenu_Fournisseur.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Retenu_Fournisseur.Model
     {
         public ContextApplication() : base("AppDB")
         {
-            // Database.SetInitializer(new MigrateDatabaseToLatestVersion<SAPXRTDbContext, Configuration>());
+             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ContextApplication, Configuration>());
           //  Database.SetInitializer<SAPXRTDbContext>(new CreateDatabaseIfNotExists<SAPXRTDbContext>());
         }
 

@@ -45,14 +45,25 @@
 
                  new BaseDonee
                  {
-                ServerName ="172.17.1.243\\sqlexpress",
-                Name ="Sage",
-                NameDataBase = "CHAABANE",
-                autentificationWindows =false,
-                UserName ="sa",
-                Password ="Admin123",
-               
-                });
+                     ServerName = "172.17.1.243\\sqlexpress",
+                     Name = "Sage",
+                     NameDataBase = "CHAABANE",
+                     autentificationWindows = false,
+                     UserName = "sa",
+                     Password = "Admin123",
+
+                 },
+                   new BaseDonee
+                   {
+                       ServerName = "172.17.1.243\\sqlexpress",
+                       Name = "CHAABANECORPORATE",
+                       NameDataBase = "CHAABANECORPORATE",
+                       autentificationWindows = false,
+                       UserName = "sa",
+                       Password = "Admin123",
+
+                   });
+            
             }
         }
     }
