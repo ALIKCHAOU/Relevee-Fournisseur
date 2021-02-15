@@ -208,6 +208,7 @@
       <DependentUpon>ReleveeFournisseur.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Retenu_Fournisseur.Model.Factures.datasource" />
     <None Include="Properties\DataSources\Retenu_Fournisseur.Model.Frounisseur.datasource" />
     <None Include="Properties\DataSources\Retenu_Fournisseur.Model.User.datasource" />
     <None Include="Properties\Settings.settings">

@@ -20,12 +20,12 @@ namespace Retenu_Fournisseur.Model
         {
             if (!autentificationWindows)
             {
-                string a = "Server=" + DBS.ServerName + "; Database=" + DBS.NameDataBase + ";User ID=" + DBS.UserName + ";Password=" + DBS.Password + ";";
+                string a = "Data Source=" + DBS.ServerName + "; Database=" + DBS.NameDataBase + ";User Id=" + DBS.UserName + ";Pwd=" + DBS.Password + ";Integrated Security=False;Connection Timeout=0";
                 return a;
             }
             else
             {
-                string a = "Server=" + DBS.ServerName + "; Database=" + DBS.NameDataBase + ";User ID=;Password=;Integrated Security = true";
+                string a = "Data Source=" + DBS.ServerName + "; Database=" + DBS.NameDataBase + ";User Id=;Pwd=;Integrated Security = true;Connection Timeout=0";
                 return a;
             }
 

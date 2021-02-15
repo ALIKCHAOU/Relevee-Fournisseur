@@ -35,10 +35,21 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.BtnRecherche = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.facturesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCT_Num1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Intitule1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Identifiant1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Contact = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Adresse = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Complement = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_CodePostal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Ville = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Pays = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Telephone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCT_Telecopie = new DevExpress.XtraGrid.Columns.GridColumn();
             this.BtnImpression = new DevExpress.XtraEditors.SimpleButton();
             this.SbFounisseur = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.frounisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCT_Num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCT_Intitule = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,6 +64,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.frounisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -60,9 +72,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SbFounisseur.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frounisseurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDateFin.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDateFin.Properties)).BeginInit();
@@ -75,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frounisseurBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -84,7 +97,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(654, 358);
+            this.layoutControl1.Size = new System.Drawing.Size(801, 358);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -93,7 +106,7 @@
             this.groupControl1.Controls.Add(this.layoutControl2);
             this.groupControl1.Location = new System.Drawing.Point(12, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(630, 334);
+            this.groupControl1.Size = new System.Drawing.Size(777, 334);
             this.groupControl1.TabIndex = 4;
             // 
             // layoutControl2
@@ -107,16 +120,16 @@
             this.layoutControl2.Location = new System.Drawing.Point(2, 20);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(626, 312);
+            this.layoutControl2.Size = new System.Drawing.Size(773, 312);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // BtnRecherche
             // 
             this.BtnRecherche.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnRecherche.ImageOptions.Image")));
-            this.BtnRecherche.Location = new System.Drawing.Point(428, 278);
+            this.BtnRecherche.Location = new System.Drawing.Point(529, 278);
             this.BtnRecherche.Name = "BtnRecherche";
-            this.BtnRecherche.Size = new System.Drawing.Size(90, 22);
+            this.BtnRecherche.Size = new System.Drawing.Size(113, 22);
             this.BtnRecherche.StyleController = this.layoutControl2;
             this.BtnRecherche.TabIndex = 10;
             this.BtnRecherche.Text = "Recherche";
@@ -124,27 +137,121 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.DataSource = this.facturesBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(12, 60);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(602, 214);
+            this.gridControl1.Size = new System.Drawing.Size(749, 214);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // facturesBindingSource
+            // 
+            this.facturesBindingSource.DataSource = typeof(Retenu_Fournisseur.Model.Factures);
+            // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCT_Num1,
+            this.colCT_Intitule1,
+            this.colCT_Identifiant1,
+            this.colCT_Contact,
+            this.colCT_Adresse,
+            this.colCT_Complement,
+            this.colCT_CodePostal,
+            this.colCT_Ville,
+            this.colCT_Pays,
+            this.colCT_Telephone,
+            this.colCT_Telecopie});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsFind.AlwaysVisible = true;
             // 
+            // colCT_Num1
+            // 
+            this.colCT_Num1.FieldName = "CT_Num";
+            this.colCT_Num1.Name = "colCT_Num1";
+            this.colCT_Num1.Visible = true;
+            this.colCT_Num1.VisibleIndex = 0;
+            // 
+            // colCT_Intitule1
+            // 
+            this.colCT_Intitule1.FieldName = "CT_Intitule";
+            this.colCT_Intitule1.Name = "colCT_Intitule1";
+            this.colCT_Intitule1.Visible = true;
+            this.colCT_Intitule1.VisibleIndex = 1;
+            // 
+            // colCT_Identifiant1
+            // 
+            this.colCT_Identifiant1.FieldName = "CT_Identifiant";
+            this.colCT_Identifiant1.Name = "colCT_Identifiant1";
+            this.colCT_Identifiant1.Visible = true;
+            this.colCT_Identifiant1.VisibleIndex = 2;
+            // 
+            // colCT_Contact
+            // 
+            this.colCT_Contact.FieldName = "CT_Contact";
+            this.colCT_Contact.Name = "colCT_Contact";
+            this.colCT_Contact.Visible = true;
+            this.colCT_Contact.VisibleIndex = 3;
+            // 
+            // colCT_Adresse
+            // 
+            this.colCT_Adresse.FieldName = "CT_Adresse";
+            this.colCT_Adresse.Name = "colCT_Adresse";
+            this.colCT_Adresse.Visible = true;
+            this.colCT_Adresse.VisibleIndex = 4;
+            // 
+            // colCT_Complement
+            // 
+            this.colCT_Complement.FieldName = "CT_Complement";
+            this.colCT_Complement.Name = "colCT_Complement";
+            this.colCT_Complement.Visible = true;
+            this.colCT_Complement.VisibleIndex = 5;
+            // 
+            // colCT_CodePostal
+            // 
+            this.colCT_CodePostal.FieldName = "CT_CodePostal";
+            this.colCT_CodePostal.Name = "colCT_CodePostal";
+            this.colCT_CodePostal.Visible = true;
+            this.colCT_CodePostal.VisibleIndex = 6;
+            // 
+            // colCT_Ville
+            // 
+            this.colCT_Ville.FieldName = "CT_Ville";
+            this.colCT_Ville.Name = "colCT_Ville";
+            this.colCT_Ville.Visible = true;
+            this.colCT_Ville.VisibleIndex = 7;
+            // 
+            // colCT_Pays
+            // 
+            this.colCT_Pays.FieldName = "CT_Pays";
+            this.colCT_Pays.Name = "colCT_Pays";
+            this.colCT_Pays.Visible = true;
+            this.colCT_Pays.VisibleIndex = 8;
+            // 
+            // colCT_Telephone
+            // 
+            this.colCT_Telephone.FieldName = "CT_Telephone";
+            this.colCT_Telephone.Name = "colCT_Telephone";
+            this.colCT_Telephone.Visible = true;
+            this.colCT_Telephone.VisibleIndex = 9;
+            // 
+            // colCT_Telecopie
+            // 
+            this.colCT_Telecopie.FieldName = "CT_Telecopie";
+            this.colCT_Telecopie.Name = "colCT_Telecopie";
+            this.colCT_Telecopie.Visible = true;
+            this.colCT_Telecopie.VisibleIndex = 10;
+            // 
             // BtnImpression
             // 
             this.BtnImpression.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnImpression.ImageOptions.Image")));
-            this.BtnImpression.Location = new System.Drawing.Point(522, 278);
+            this.BtnImpression.Location = new System.Drawing.Point(646, 278);
             this.BtnImpression.Name = "BtnImpression";
-            this.BtnImpression.Size = new System.Drawing.Size(92, 22);
+            this.BtnImpression.Size = new System.Drawing.Size(115, 22);
             this.BtnImpression.StyleController = this.layoutControl2;
             this.BtnImpression.TabIndex = 8;
             this.BtnImpression.Text = "Impression";
@@ -161,13 +268,9 @@
             this.SbFounisseur.Properties.DisplayMember = "CT_Intitule";
             this.SbFounisseur.Properties.ValueMember = "CT_Intitule";
             this.SbFounisseur.Properties.View = this.searchLookUpEdit1View;
-            this.SbFounisseur.Size = new System.Drawing.Size(543, 20);
+            this.SbFounisseur.Size = new System.Drawing.Size(690, 20);
             this.SbFounisseur.StyleController = this.layoutControl2;
             this.SbFounisseur.TabIndex = 7;
-            // 
-            // frounisseurBindingSource
-            // 
-            this.frounisseurBindingSource.DataSource = typeof(Retenu_Fournisseur.Model.Frounisseur);
             // 
             // searchLookUpEdit1View
             // 
@@ -219,7 +322,7 @@
             this.TxtDateFin.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.TxtDateFin.Properties.Mask.EditMask = "";
             this.TxtDateFin.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.TxtDateFin.Size = new System.Drawing.Size(543, 20);
+            this.TxtDateFin.Size = new System.Drawing.Size(690, 20);
             this.TxtDateFin.StyleController = this.layoutControl2;
             this.TxtDateFin.TabIndex = 4;
             // 
@@ -236,7 +339,7 @@
             this.layoutControlItem7});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(626, 312);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(773, 312);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem2
@@ -244,7 +347,7 @@
             this.layoutControlItem2.Control = this.TxtDateFin;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(606, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(753, 24);
             this.layoutControlItem2.Text = "Date :";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -253,16 +356,16 @@
             this.layoutControlItem5.Control = this.SbFounisseur;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(606, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(753, 24);
             this.layoutControlItem5.Text = "Fournisseur";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(56, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.BtnImpression;
-            this.layoutControlItem4.Location = new System.Drawing.Point(510, 266);
+            this.layoutControlItem4.Location = new System.Drawing.Point(634, 266);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(96, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(119, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -271,7 +374,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 266);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(416, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(517, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
@@ -279,16 +382,16 @@
             this.layoutControlItem6.Control = this.gridControl1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(606, 218);
+            this.layoutControlItem6.Size = new System.Drawing.Size(753, 218);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.BtnRecherche;
-            this.layoutControlItem7.Location = new System.Drawing.Point(416, 266);
+            this.layoutControlItem7.Location = new System.Drawing.Point(517, 266);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(94, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(117, 26);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -300,7 +403,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(654, 358);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(801, 358);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -308,15 +411,19 @@
             this.layoutControlItem1.Control = this.groupControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(634, 338);
+            this.layoutControlItem1.Size = new System.Drawing.Size(781, 338);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // frounisseurBindingSource
+            // 
+            this.frounisseurBindingSource.DataSource = typeof(Retenu_Fournisseur.Model.Frounisseur);
             // 
             // FrmReleveeFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 358);
+            this.ClientSize = new System.Drawing.Size(801, 358);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FrmReleveeFournisseur";
             this.Text = "Relevee Fournisseur";
@@ -329,9 +436,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SbFounisseur.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.frounisseurBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDateFin.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDateFin.Properties)).EndInit();
@@ -344,6 +451,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frounisseurBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,7 +467,6 @@
         private DevExpress.XtraEditors.DateEdit TxtDateFin;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.SearchLookUpEdit SbFounisseur;
-        private System.Windows.Forms.BindingSource frounisseurBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.SimpleButton BtnImpression;
@@ -373,5 +480,18 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.SimpleButton BtnRecherche;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Num1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Intitule1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Identifiant1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Contact;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Adresse;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Complement;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_CodePostal;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Ville;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Pays;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Telephone;
+        private DevExpress.XtraGrid.Columns.GridColumn colCT_Telecopie;
+        private System.Windows.Forms.BindingSource facturesBindingSource;
+        private System.Windows.Forms.BindingSource frounisseurBindingSource;
     }
 }
