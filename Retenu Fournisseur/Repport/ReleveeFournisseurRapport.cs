@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Retenu_Fournisseur.Repport
 {
-    public partial class ReleveeFournisseur : DevExpress.XtraReports.UI.XtraReport
+    public partial class ReleveeFournisseurRapport : DevExpress.XtraReports.UI.XtraReport
     {
-        public ReleveeFournisseur()
+        public ReleveeFournisseurRapport()
         {
             InitializeComponent();
         }

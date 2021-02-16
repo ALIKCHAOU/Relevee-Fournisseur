@@ -14,6 +14,8 @@ using Dapper;
 using DevExpress.XtraGrid.Views.Grid;
 using Retenu_Fournisseur.Repport;
 using DevExpress.XtraReports.UI;
+using System.Globalization;
+using System.Threading;
 
 namespace Retenu_Fournisseur.Forms
 {
@@ -164,7 +166,13 @@ SELECT  [D_RaisonSoc] as RaisonSociale
 
         private void BtnRecherche_Click(object sender, EventArgs e)
         {
-            int number;
+            CultureInfo culture = Thread.CurrentThread.CurrentCulture;
+            string decimalSeparator = culture.NumberFormat.NumberDecimalSeparator;
+            decimal Debit;
+            decimal Credit;
+            decimal Solde;
+            decimal Montant;
+
             List<Factures> ListFacture = new List<Factures>();
             var Sage = db.BaseDonees.Where(x => x.Name == "Sage").SingleOrDefault();
             var CHAABANECORPORATE = db.BaseDonees.Where(x => x.Name == "CHAABANECORPORATE").SingleOrDefault();
@@ -300,38 +308,42 @@ SELECT  [D_RaisonSoc] as RaisonSociale
                         
                         Console.WriteLine(rdr.GetValue(0).ToString());
                         Factures FA = new Factures();
-                        FA.Date = rdr["Date"].ToString();
-                        FA.Echeance = rdr["Echeance"].ToString();
+                       // DateTime startDate = DateTime.ParseExact("01/01/2020", "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                       // FA.Date =  DateTime.ParseExact(rdr["Date"].ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                        FA.Date = Convert.ToDateTime(rdr["Date"]);
+                        FA.Echeance = Convert.ToDateTime(rdr["Echeance"]);                        
                         FA.IsLettre = rdr["IsLettre"].ToString();
                         FA.Journal = rdr["Journal"].ToString();
                         FA.Libelle = rdr["Libelle"].ToString();
                         FA.Mode = rdr["Mode"].ToString();
-                        FA.Montant = rdr["Montant"].ToString();
+                        string MontantStr = rdr["Montant"].ToString().Replace(",", decimalSeparator).Replace(".", decimalSeparator);
+                        decimal.TryParse(MontantStr, out Montant);
+                        FA.Montant = Montant;
+                        if(Montant<0)
+                        {
+                            FA.Credit = Montant;
+                        }
+                        else
+                        {
+                            FA.Debit = Montant;
+                        }
+                        FA.Solde = Montant;
                         FA.Numero= rdr["Numero"].ToString();
-                        FA.Piece= rdr["Piece"].ToString();
-                        FA.Sens = rdr["Sens"].ToString();
+                        FA.Sens = Convert.ToInt32(rdr["Sens"].ToString());
                         FA.SocieteNo= rdr["SocieteNo"].ToString();
                         FA.TiersIntitule= rdr["TiersIntitule"].ToString();
                         FA.TiersNo = rdr["TiersNo"].ToString();
-                        bool isParsable = Int32.TryParse(rdr["TiersNumero"].ToString(), out number);
-                        FA.TiersNumero = number;
+
+                     //   bool isParsable = Int32.TryParse(rdr["TiersNumero"].ToString(), out number);
+                        FA.TiersNumero = rdr["TiersNumero"].ToString();
                         FA.TypeCode = rdr["TypeCode"].ToString();
                         ListFacture.Add(FA);
                         //rdr.GetValue(0).ToString() pour avoir la valeur de la premiére colonne en format de chaine de caractére
                     }
                     var resultat = ListFacture.ToList();
-                    facturesBindingSource.DataSource= ListFacture.ToList();
+                    facturesBindingSource.DataSource= ListFacture.ToList().OrderByDescending(x=>x.Date);
 
-                }
-                using (IDbConnection dbConnection = new SqlConnection(Sage.StringConnection(Sage)))
-                {
-                    if (dbConnection.State == System.Data.ConnectionState.Closed)
-                        dbConnection.Open();
-
-                    var Societe = dbConnection.Query<Societe>(QuerrySociete);
-
-
-                }
+                }         
 
 
 
@@ -358,33 +370,19 @@ SELECT  [D_RaisonSoc] as RaisonSociale
         {
             List<ImpressionReleveeFournisseur> IRFS = new List<ImpressionReleveeFournisseur>();
             ImpressionReleveeFournisseur IRF = new ImpressionReleveeFournisseur();
+            List<Factures> Factures = new List<Factures>();
+            int rowHandle = 0;
+            while (gridView1.IsValidRowHandle(rowHandle))
+            {
+                Factures Facture = gridView1.GetRow(rowHandle) as Factures;
+                Factures.Add(Facture);
+                bool isSelected = gridView1.IsRowSelected(rowHandle);
+                rowHandle++;
+            }
             var Sage = db.BaseDonees.Where(x => x.Name == "Sage").SingleOrDefault();
             var CHAABANECORPORATE = db.BaseDonees.Where(x => x.Name == "CHAABANECORPORATE").SingleOrDefault();
-
-            string con = Sage.StringConnection(Sage);
-
-
-            /// getselectRowColumn from comboboxdevis
-            GridView view = SbFounisseur.Properties.View;
-            int rowHandle = view.FocusedRowHandle;
-            string fieldName = "CT_Num"; // or other field name  
-            object FournisseurSelected = view.GetRowCellValue(rowHandle, fieldName);
-            /// getselectRowColumn from comboboxdevis
-
-            ///Condition existance Fournisseur
-            if (FournisseurSelected == null)
-            {
-                XtraMessageBox.Show("Choisir un Fournisseur ", "Fournisseur", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-                SbFounisseur.Focus();
-
-                BtnImpression.Enabled = true;
-
-            } ///Condition existance devis
-
-            //Recherche
-            else
-            {
-                var parameters = new { Fournisseur = FournisseurSelected };
+            string con = Sage.StringConnection(Sage);       
+                
                 using (IDbConnection dbConnection = new SqlConnection(Sage.StringConnection(Sage)))
                 {
                     if (dbConnection.State == System.Data.ConnectionState.Closed)
@@ -396,22 +394,17 @@ SELECT  [D_RaisonSoc] as RaisonSociale
                     IRF.Profession = Societe.Profession;
                     IRF.RaisonSociale = Societe.RaisonSociale;
                     IRF.Tel = Societe.Tel.Substring(5, 8);
+                    IRF.Factures = Factures;
 
 
                 }
-                using (IDbConnection dbConnection = new SqlConnection(CHAABANECORPORATE.StringConnection(CHAABANECORPORATE)))
-                {
-                    if (dbConnection.State == System.Data.ConnectionState.Closed)
-                        dbConnection.Open();
+               IRFS.Add(IRF);
 
 
-                    var Resulat = dbConnection.Query<Factures>(sqlrequest, parameters);
 
-                }
-
-                ReleveeFournisseur RF = new ReleveeFournisseur();
-                IRFS.Add(IRF);
-                RF.DataSource = IRFS;
+               ReleveeFournisseurRapport RF = new ReleveeFournisseurRapport();
+              
+                RF.DataSource = Factures.ToList();
 
                 ReportPrintTool tool = new ReportPrintTool(RF);
                 tool.ShowPreview();
@@ -421,7 +414,7 @@ SELECT  [D_RaisonSoc] as RaisonSociale
                 // var d = cbDevis.Properties.DisplayMember = "D_Mode";
 
                 //    F_Ecriture_BindingSource.DataSource = dbConnection.Query<Models.F_ECRITUREC>(Query, commandType: CommandType.Text);
-                XtraMessageBox.Show("Recherche Terminer", "Recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
 
                 BtnImpression.Enabled = true;
                 BtnRecherche.Enabled = true;
@@ -429,8 +422,6 @@ SELECT  [D_RaisonSoc] as RaisonSociale
 
 
 
-            }
-            //Recherche
 
 
 

@@ -13,6 +13,6 @@ namespace Retenu_Fournisseur.Model
         public string Adresse { get; set; }
         public string Tel { get; set; }
         public string Fax { get; set; }
-        List<Factures> Factures { get; set; }
+        public List<Factures> Factures { get; set; }
     }
 }
