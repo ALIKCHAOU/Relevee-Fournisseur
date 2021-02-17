@@ -24,6 +24,8 @@ namespace Retenu_Fournisseur.Model
            public DateTime Echeance { get; set; }
            public decimal  Debit { get; set; }
            public decimal Credit { get; set; }
+          public string DebitStr { get; set; }
+          public string CreditStr { get; set; }
           public decimal Solde { get; set; }
 
 

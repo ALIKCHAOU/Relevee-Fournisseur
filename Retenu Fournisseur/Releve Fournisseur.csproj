@@ -148,7 +148,6 @@
     <Compile Include="Model\Exercice.cs" />
     <Compile Include="Model\Factures.cs" />
     <Compile Include="Model\Frounisseur.cs" />
-    <Compile Include="Model\ImpressionReleveeFournisseur.cs" />
     <Compile Include="Model\ReleveFournisseur.cs" />
     <Compile Include="Model\Societe.cs" />
     <Compile Include="Model\User.cs" />

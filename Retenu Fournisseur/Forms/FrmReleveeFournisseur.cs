@@ -172,6 +172,9 @@ SELECT  [D_RaisonSoc] as RaisonSociale
             decimal Credit;
             decimal Solde;
             decimal Montant;
+            DateTime DateDebut = DateTime.ParseExact(dateEditDateDebut.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);     
+          
+            DateTime DateFin = DateTime.ParseExact(dateEditDateFin.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
             List<Factures> ListFacture = new List<Factures>();
             var Sage = db.BaseDonees.Where(x => x.Name == "Sage").SingleOrDefault();
@@ -259,7 +262,7 @@ SELECT  [D_RaisonSoc] as RaisonSociale
   FROM [dbo].[vEcritureFournisseur] AS E
   LEFT JOIN vExercice AS EX ON EX.Debut <= E.Date AND EX.Fin >= E.Date AND E.[SocieteNo] = EX.[SocieteNo] 
 	AND EX.ANNEE  IN( SELECT TOP 1 L.ANNEE FROM vExercice AS L  ORDER BY L.ANNEE asc )  
-	 where  E.[TiersNumero] ='"+ FournisseurSelected+"'"+@"
+	 where  E.[TiersNumero] ='"+ FournisseurSelected+ "' and   E.[Date]   BETWEEN '"+ DateDebut.ToString("dd/MM/yyyy") + "' AND '"+ DateFin.ToString("dd/MM/yyyy")+ @"'
     UNION  
     SELECT 
       T.No					'TiersNo'
@@ -321,11 +324,16 @@ SELECT  [D_RaisonSoc] as RaisonSociale
                         FA.Montant = Montant;
                         if(Montant<0)
                         {
-                            FA.Credit = Montant;
+                            FA.Credit = Math.Round(Montant * (-1),3);
+                            FA.CreditStr = FA.Credit.ToString();
+                            FA.DebitStr = "";
+
                         }
                         else
                         {
-                            FA.Debit = Montant;
+                            FA.Debit = Math.Round(Montant, 3) ;
+                            FA.DebitStr = FA.Debit.ToString();
+                            FA.CreditStr = "";
                         }
                         FA.Solde = Montant;
                         FA.Numero= rdr["Numero"].ToString();
@@ -341,7 +349,7 @@ SELECT  [D_RaisonSoc] as RaisonSociale
                         //rdr.GetValue(0).ToString() pour avoir la valeur de la premiére colonne en format de chaine de caractére
                     }
                     var resultat = ListFacture.ToList();
-                    facturesBindingSource.DataSource= ListFacture.ToList().OrderByDescending(x=>x.Date);
+                    facturesBindingSource.DataSource = ListFacture.ToList().OrderBy(x => x.Date);//OrderByDescending(x=>x.Date);
 
                 }         
 
@@ -368,8 +376,10 @@ SELECT  [D_RaisonSoc] as RaisonSociale
 
         private void BtnImpression_Click(object sender, EventArgs e)
         {
-            List<ImpressionReleveeFournisseur> IRFS = new List<ImpressionReleveeFournisseur>();
-            ImpressionReleveeFournisseur IRF = new ImpressionReleveeFournisseur();
+            DateTime DateDebut = DateTime.ParseExact(dateEditDateDebut.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+            DateTime DateFin = DateTime.ParseExact(dateEditDateFin.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
             List<Factures> Factures = new List<Factures>();
             int rowHandle = 0;
             while (gridView1.IsValidRowHandle(rowHandle))
@@ -381,30 +391,44 @@ SELECT  [D_RaisonSoc] as RaisonSociale
             }
             var Sage = db.BaseDonees.Where(x => x.Name == "Sage").SingleOrDefault();
             var CHAABANECORPORATE = db.BaseDonees.Where(x => x.Name == "CHAABANECORPORATE").SingleOrDefault();
-            string con = Sage.StringConnection(Sage);       
-                
-                using (IDbConnection dbConnection = new SqlConnection(Sage.StringConnection(Sage)))
+            string con = Sage.StringConnection(Sage);
+            ReleveeFournisseurRapport RF = new ReleveeFournisseurRapport();
+
+            using (IDbConnection dbConnection = new SqlConnection(Sage.StringConnection(Sage)))
                 {
                     if (dbConnection.State == System.Data.ConnectionState.Closed)
                         dbConnection.Open();
 
                     var Societe = dbConnection.Query<Societe>(QuerrySociete, commandType: CommandType.Text).FirstOrDefault();
-                    IRF.Adresse = Societe.Adresse;
-                    IRF.Fax = Societe.Fax.Substring(5, 8);
-                    IRF.Profession = Societe.Profession;
-                    IRF.RaisonSociale = Societe.RaisonSociale;
-                    IRF.Tel = Societe.Tel.Substring(5, 8);
-                    IRF.Factures = Factures;
+                    RF.Parameters["Adresse"].Value = Societe.Adresse;
+                    RF.Parameters["Adresse"].Visible = false;
+                RF.Parameters["Fax"].Value = Societe.Fax.Substring(5, 8);
+                RF.Parameters["Fax"].Visible = false;
+                RF.Parameters["Profession"].Value  = Societe.Profession;
+                RF.Parameters["Profession"].Visible = false;
+                RF.Parameters["RaisonSociale"].Value = Societe.RaisonSociale;
+                RF.Parameters["RaisonSociale"].Visible = false;
+                RF.Parameters["Telephone"].Value = Societe.Tel.Substring(5, 8);
+                RF.Parameters["Telephone"].Visible = false;
 
 
-                }
-               IRFS.Add(IRF);
+
+
+            }           
+           //RF.Parameters.
+        
+            RF.Parameters["Client"].Value = Factures.Select(x=>x.TiersNumero).First();
+            RF.Parameters["Client"].Visible = false;
+            RF.Parameters["DateDebut"].Value = DateDebut;
+            RF.Parameters["DateDebut"].Visible = false;
+            RF.Parameters["DateFin"].Value = DateFin;
+            RF.Parameters["DateFin"].Visible = false;
 
 
 
-               ReleveeFournisseurRapport RF = new ReleveeFournisseurRapport();
-              
-                RF.DataSource = Factures.ToList();
+
+
+            RF.DataSource = Factures.ToList();
 
                 ReportPrintTool tool = new ReportPrintTool(RF);
                 tool.ShowPreview();
@@ -429,6 +453,11 @@ SELECT  [D_RaisonSoc] as RaisonSociale
 
 
 
+
+        }
+
+        private void dateEditDateDebut_EditValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
